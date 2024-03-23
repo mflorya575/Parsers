@@ -1,5 +1,18 @@
+"""
+Эта программа проходит по файлу user_agent.txt и выводит каждый user-agent с новой строки.
+"""
 import requests
-from requests.auth import HTTPBasicAuth
+from random import choice
 
-response = requests.get('https://xgma-excavators.ru/', auth=HTTPBasicAuth('user', 'pass'))
-print(response.text)
+
+url = 'http://httpbin.org/user-agent'
+
+with open('user_agent.txt') as file:
+    lines = file.read().split('\n')
+
+for line in lines:
+    user_agent = {'user-agent': choice(lines)}
+    response = requests.get(url=url, headers=user_agent)
+    print(response.text)
+
+
