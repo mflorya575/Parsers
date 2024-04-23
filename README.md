@@ -4,5 +4,7 @@ Python 3.11
 
 Libraries:
 requests,
-BeautifulSoup,
+BeautifulSoup4,
+lxml,
+html5lib,
 Selenium,
